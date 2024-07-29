@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>JS Practice</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./node_modules/modern-normalize/modern-normalize.css">
+        <link rel="stylesheet" href="./style.css">
+        
+    </head>
+    <body>
+        <div class="content-wrapper">
+            <header class="header">
+                <h1>Book Tracker</h1>
+
+            </header>
+            <div class="nav">
+                <h2>Add Book</h2>
+                <form action="" method="get" class="book-form">
+                    <div class="form-row">
+                        <label for="book-title">Title</label><br>
+                        <input id="book-title" name="book-title" type="text" value="">
+                    </div>
+                    <div class="form-row">
+                        <label for="book-author">Author</label><br>
+                        <input id="book-author" name="book-author" type="text" value="">
+                    </div>
+                    <div class="form-row">
+                        <label for="book-pages"># Pages</label><br>
+                        <input id="book-pages" name="book-pages" type="text" value="">
+                    </div>
+                    <fieldset class="form-row">
+                        <legend>Finished</legend>
+                        <input type="radio" name="read-type" id="option-1" value="Yes">
+                        <label for="option-1" class="radio-label">Yes</label>
+                        <input type="radio" name="read-type" id="option-2" value="No">
+                        <label for="option-2" class="radio-label">No</label>
+                    </fieldset>
+                    <div class="button">
+                        <button class="add-button" type="submit">Add</button>
+                    </div>
+                </form>
+                <div class="test">
+                    <button class="test-button" type="submit">Test Library</button>
+                </div>
+            </div>
+            <div class="main">
+                <h2>My Books</h2>
+                <table class="main-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Author</th>
+                            <th scope="col"># Pages</th>
+                            <th scope="col">Finished</th>
+                        </tr>
+                    </thead>
+                    <tbody class="book-table">
+
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <script src="./book.js" async defer></script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 10% 90%;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+.nav {
+    grid-column: 1 / 2;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 1rem;
+    
+}
+
+.main {
+    
+}
+
+.main-table {
+    width: 700px;
+    text-align: left;
+}
+
