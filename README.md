@@ -2,7 +2,7 @@
 
 Book Tracker was inspired by an assignment from the Odin Project's Full Stack course. This application allows users to add books to a personal library, update the read status of books, and remove books from the library.
 
-**Link to project:** https://github.com/cskee004/library
+**Link to project:** https://cskee004.github.io/library/
 
 ![alt text](https://github.com/cskee004/library/resources/screenshot.png?raw=true)
 
