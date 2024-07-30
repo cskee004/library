@@ -7,7 +7,7 @@ addButton.addEventListener("click", addBookToLibrary, false);
 //-------------------------------------------------------------------------->>
 /**
  * @param {myLibrary} - An array of book objects
- * @param {bookID} - Used for identifying the correct book for status change and remove
+ * @param {bookID} - A unique identifer for searching 
  */
 const myLibrary = [];
 let bookID = 0;
@@ -22,7 +22,7 @@ const book5 = new Book("The Odyssey", "Homer", 541, false, 5);
 const testArray = [book1, book2, book3, book4, book5];
 
 function testLibrary() {
-
+    myLibrary = testArray;
     testArray.forEach(element => {
         updateLibrary(element);
     });
@@ -39,11 +39,12 @@ function randomStatus() {
 }
 //--------------------------------------------------------------------------->>
 /**
- * 
+ * Constructor 
  * @param {title} - Title of book 
  * @param {author} - Author of book
  * @param {pages} - How many pages are in the book
  * @param {readStatus} - If the book has been completed or not
+ * @param {ID} - unique identifier for search 
  */
 function Book(title, author, pages, readStatus, ID) {
     this.title = title;
@@ -51,7 +52,6 @@ function Book(title, author, pages, readStatus, ID) {
     this.pages = pages;
     this.readStatus = readStatus;
     this.ID = ID;
-    
     
     /**
      * 
@@ -69,7 +69,7 @@ function Book(title, author, pages, readStatus, ID) {
 //--------------------------------------------------------------------------->>
 /**
  * A function to add book to array
- * @param {event} - Represents the click of the submit button on book form
+ * @param {event} - Represents the event object interface (Add button)
  */
 function addBookToLibrary(event) {
     event.preventDefault();
@@ -95,7 +95,7 @@ function addBookToLibrary(event) {
 //--------------------------------------------------------------------------->>
 /**
  * A function to remove book from array and table
- * @param {event} -  
+ * @param {event} -  Represents the event object interface (Remove button)
  */
 function removeBook(event) {
     
@@ -116,7 +116,7 @@ function removeBook(event) {
 //--------------------------------------------------------------------------->>
 /**
  * A function to toggle the read status of book object and to update table
- * @param {event} - 
+ * @param {event} - Represents the event object interface (Status button)
  */
 function statusChange(event) {
     
@@ -182,5 +182,3 @@ function updateLibrary(bookToAdd) {
     table.append(newRow);
 }
 //--------------------------------------------------------------------------->>
-
-

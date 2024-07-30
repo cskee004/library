@@ -108,4 +108,6 @@ input[type="text"] {
 	position:relative;
 	top:1px;
 }
-
+input [type=”radio”]:checked:after {
+    background-color: #66FCF1;
+}
