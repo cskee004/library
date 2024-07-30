@@ -12,12 +12,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./node_modules/modern-normalize/modern-normalize.css">
         <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         
     </head>
     <body>
         <div class="content-wrapper">
             <header class="header">
-                <h1>Book Tracker</h1>
+                <box-icon name='book-open' size="lg" color="#66FCF1"></box-icon>
+                <span>BOOK TRACKER</span>
+                
 
             </header>
             <div class="nav">
@@ -25,15 +29,15 @@
                 <form action="" method="get" class="book-form">
                     <div class="form-row">
                         <label for="book-title">Title</label><br>
-                        <input id="book-title" name="book-title" type="text" value="">
+                        <input id="book-title" name="book-title" type="text" autocomplete="off">
                     </div>
                     <div class="form-row">
                         <label for="book-author">Author</label><br>
-                        <input id="book-author" name="book-author" type="text" value="">
+                        <input id="book-author" name="book-author" type="text" autocomplete="off">
                     </div>
                     <div class="form-row">
-                        <label for="book-pages"># Pages</label><br>
-                        <input id="book-pages" name="book-pages" type="text" value="">
+                        <label for="book-pages">Pages</label><br>
+                        <input id="book-pages" name="book-pages" type="text" autocomplete="off">
                     </div>
                     <fieldset class="form-row">
                         <legend>Finished</legend>
@@ -46,9 +50,7 @@
                         <button class="add-button" type="submit">Add</button>
                     </div>
                 </form>
-                <div class="test">
-                    <button class="test-button" type="submit">Test Library</button>
-                </div>
+
             </div>
             <div class="main">
                 <h2>My Books</h2>
@@ -57,19 +59,19 @@
                         <tr>
                             <th scope="col">Title</th>
                             <th scope="col">Author</th>
-                            <th scope="col"># Pages</th>
+                            <th scope="col">Pages</th>
                             <th scope="col">Finished</th>
+                            <th scope="col">Remove</th>
                         </tr>
                     </thead>
                     <tbody class="book-table">
 
-                        
-                        
                     </tbody>
                 </table>
             </div>
         </div>
         
         <script src="./book.js" async defer></script>
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     </body>
 </html>

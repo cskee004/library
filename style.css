@@ -1,13 +1,47 @@
+:root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+  }
+  @supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, sans-serif; }
+  }
+
+body {
+    background-color: #0B0C10;
+}
+
 .content-wrapper {
+    background-color: #1F2833;
     display: grid;
     grid-template-columns: 20% 80%;
     grid-template-rows: 10% 90%;
     width: 100%;
     height: 100vh;
     padding: 20px;
+    
+}
+
+.header {
+    color: #66FCF1;
+    font-weight: 800;
+    display: flex;
+    font-size: 36px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+h2 {
+    font-weight: 400;
 }
 
 .nav {
+    color: #C5C6C7;
     grid-column: 1 / 2;
     display: flex;
     justify-content: flex-start;
@@ -15,20 +49,63 @@
 }
 
 form {
+    color: #C5C6C7;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
     gap: 1rem;
+    font-size: 18px;
     
 }
 
-.main {
-    
+.main h2 {
+    color: #C5C6C7;
 }
 
 .main-table {
     width: 700px;
     text-align: left;
+}
+table {
+    color: #C5C6C7;
+    border-collapse: collapse;
+}
+
+td, th {
+    color: #C5C6C7;
+    border: 1px solid #45A29E;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+input[type="text"] {
+    border: 2px solid #45A29E;
+    border-radius: 5px;
+}
+
+.add-button, #status-button, #remove-button{
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+	background-color:#f9f9f9;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.add-button:hover, #status-button:hover, #remove-button:hover {
+	background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+	background-color:#e9e9e9;
+}
+.add-button:active, #status-button:active, #remove-button:active {
+	position:relative;
+	top:1px;
 }
 

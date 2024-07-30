@@ -1,10 +1,14 @@
+/**
+ * Adds event listener to submut button in form
+ */
 const addButton = document.querySelector(".add-button");
 addButton.addEventListener("click", addBookToLibrary, false);
 
-const testButton = document.querySelector(".test-button");
-testButton.addEventListener("click", testLibrary, false);
-
 //-------------------------------------------------------------------------->>
+/**
+ * @param {myLibrary} - An array of book objects
+ * @param {bookID} - Used for identifying the correct book for status change and remove
+ */
 const myLibrary = [];
 let bookID = 0;
 
@@ -36,10 +40,10 @@ function randomStatus() {
 //--------------------------------------------------------------------------->>
 /**
  * 
- * @param {*} title 
- * @param {*} author 
- * @param {*} pages 
- * @param {*} readStatus 
+ * @param {title} - Title of book 
+ * @param {author} - Author of book
+ * @param {pages} - How many pages are in the book
+ * @param {readStatus} - If the book has been completed or not
  */
 function Book(title, author, pages, readStatus, ID) {
     this.title = title;
@@ -49,7 +53,10 @@ function Book(title, author, pages, readStatus, ID) {
     this.ID = ID;
     
     
-
+    /**
+     * 
+     * @returns information about the book 
+     */
     this.info = function() {
         if (readStatus == "No") {
             return "The " + title +" by " + author + ", " + pages + ", not read yet.";
@@ -61,8 +68,8 @@ function Book(title, author, pages, readStatus, ID) {
 }
 //--------------------------------------------------------------------------->>
 /**
- * 
- * @param {*} event 
+ * A function to add book to array
+ * @param {event} - Represents the click of the submit button on book form
  */
 function addBookToLibrary(event) {
     event.preventDefault();
@@ -84,34 +91,36 @@ function addBookToLibrary(event) {
         myLibrary.push(bookToAdd);
         updateLibrary(bookToAdd);
     }
-    console.table(myLibrary);
 }
 //--------------------------------------------------------------------------->>
 /**
- * 
- * @param {*} event 
+ * A function to remove book from array and table
+ * @param {event} -  
  */
 function removeBook(event) {
     
-    let bookArr = event.target.parentElement.getAttribute("data");
-    let bookElement = event.currentTarget.parentElement;
+    let bookIdButton = event.currentTarget.parentElement.getAttribute("data");
+    let bookIdParent = event.currentTarget.parentElement;
     let bookTable = document.querySelector('.book-table');
 
     for(let i = 0; i < myLibrary.length; i++) {
-        let searchItem = myLibrary[i].ID
-        if (searchItem == bookArr) {
+        let currentBookID = myLibrary[i].ID
+        if (currentBookID == bookIdButton) {
             myLibrary.splice(i, 1);
-            
         }
-        
     }
     
-    bookTable.removeChild(bookElement);
+    bookTable.removeChild(bookIdParent);
+    
 }
-
+//--------------------------------------------------------------------------->>
+/**
+ * A function to toggle the read status of book object and to update table
+ * @param {event} - 
+ */
 function statusChange(event) {
     
-    let bookStatus = event.target.parentElement.getAttribute("data");
+    let bookStatus = event.currentTarget.parentElement.getAttribute("data");
     for(let i = 0; i < myLibrary.length; i++) {
         let searchItem = myLibrary[i].ID
         if (searchItem == bookStatus) {
@@ -125,30 +134,37 @@ function statusChange(event) {
             }
         }
     }
+    console.table(myLibrary)
 }
 //--------------------------------------------------------------------------->>
 /**
- * 
- * @param {*} bookToAdd 
+ * Adds book to table
+ * @param {bookToAdd} - Represents a book object 
  */
 function updateLibrary(bookToAdd) {
 
     read = document.getElementsByName("read-type");
     let table = document.querySelector(".book-table");
     let newRow = document.createElement("tr");
+    newRow.setAttribute('class', "book-row")
     newRow.setAttribute('data', bookToAdd.ID);
 
     let addTitle = document.createElement("td");
     let addAuthor = document.createElement("td");
     let addPages = document.createElement("td");
+    let status = document.createElement("td");
+    let remove = document.createElement("td");
     let statusButton = document.createElement("button");
     let removeButton = document.createElement("button");
-    
-    statusButton.classList.add("status-button");
-    removeButton.classList.add("remove-button");
 
-    statusButton.addEventListener("click", statusChange, false);
-    removeButton.addEventListener("click", removeBook, false);
+    status.setAttribute('id', "status-container");
+    remove.setAttribute('id', "remove-container");
+    
+    statusButton.setAttribute('id', "status-button");
+    removeButton.setAttribute('id', "remove-button");
+
+    status.addEventListener("click", statusChange, false);
+    remove.addEventListener("click", removeBook, false);
 
     addTitle.innerHTML = bookToAdd.title;
     addAuthor.innerHTML = bookToAdd.author;
@@ -159,15 +175,11 @@ function updateLibrary(bookToAdd) {
     newRow.append(addTitle);
     newRow.append(addAuthor);
     newRow.append(addPages);
-    newRow.append(statusButton);
-    newRow.append(removeButton);
+    newRow.append(status);
+    status.append(statusButton);
+    newRow.append(remove);
+    remove.append(removeButton);
     table.append(newRow);
-}
-//--------------------------------------------------------------------------->>
-function printLibrary() {
-    for(itr of myLibrary) {
-        console.log(itr);
-    }
 }
 //--------------------------------------------------------------------------->>
 
