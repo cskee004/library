@@ -4,7 +4,7 @@ Book Tracker was inspired by an assignment from the Odin Project's Full Stack co
 
 **Link to project:** https://cskee004.github.io/library/
 
-![alt text](https://github.com/cskee004/library/screenshot.png?raw=true)
+![screenshot](screenshot.png)
 
 ## How It's Made:
 
