@@ -1,3 +1,7 @@
+### Acknowledgement
+
+Thank you to the creators of the Odin Project for putting together a free cirriculum for learning web development.
+
 # Library Project
 
 Book Tracker was inspired by an assignment from the Odin Project's Full Stack course. This application allows users to add books to a personal library, update the read status of books, and remove books from the library.
